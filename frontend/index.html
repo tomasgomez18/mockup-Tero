@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TERO | Mayorista y minorista</title>
+    <style>
+      .initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background: #fafafa;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      }
+      .initial-loader__logo {
+        position: relative;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #e5e5e5;
+        user-select: none;
+      }
+      .initial-loader__fill {
+        position: absolute;
+        inset: 0;
+        color: #171717;
+        animation: initial-logo-fill 2s ease-in-out infinite;
+      }
+      .initial-loader__bar {
+        position: relative;
+        width: 96px;
+        height: 2px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #e5e5e5;
+      }
+      .initial-loader__bar::after {
+        content: '';
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 50%;
+        border-radius: 999px;
+        background: #171717;
+        animation: initial-loader-bar 1.2s ease-in-out infinite;
+      }
+      @media (min-width: 640px) {
+        .initial-loader__logo {
+          font-size: 36px;
+        }
+      }
+      @keyframes initial-logo-fill {
+        0% {
+          clip-path: inset(100% 0 0 0);
+        }
+        50% {
+          clip-path: inset(0 0 0 0);
+        }
+        100% {
+          clip-path: inset(0 0 100% 0);
+        }
+      }
+      @keyframes initial-loader-bar {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(200%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="initial-loader" role="status" aria-label="Cargando">
+        <div class="initial-loader__logo">
+          TERO
+          <span class="initial-loader__fill" aria-hidden="true">TERO</span>
+        </div>
+        <div class="initial-loader__bar"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
